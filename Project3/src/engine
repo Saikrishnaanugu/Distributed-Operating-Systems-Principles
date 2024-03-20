@@ -1,0 +1,15 @@
+-module(engine).
+-behavior(gen_server).
+-export(compile_all).
+
+
+
+start() ->                                                      
+    gen_server:start_link({local, engine}, engine, [], []).
+
+init(_Args) ->
+    Frequencies = {get_frequencies(), []},
+    {ok, Frequencies}.
+
+get_frequencies() -> 
+    io:format("Frequencies are ~p Hops ~n", [[10,11,12,13,14,15]]).
